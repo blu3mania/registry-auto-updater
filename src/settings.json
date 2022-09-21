@@ -1,0 +1,50 @@
+{
+    "service": {
+        "name": "Registry Auto Updater"
+    },
+    "showNotification": false,
+    "updateSets": [
+        {
+            "id": "Interactive logon: Do not require CTRL+ALT+DEL",
+            "trigger": "Value Change",
+            "values": [
+                {
+                    "key": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+                    "name": "DisableCAD",
+                    "value": 1,
+                    "type": "REG_DWORD"
+                },
+                {
+                    "key": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+                    "name": "DisableCAD",
+                    "value": 1,
+                    "type": "REG_DWORD"
+                }
+            ]
+        },
+        {
+            "id": "Enable password manager in Chrome",
+            "trigger": "Value Change",
+            "values": [
+                {
+                    "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Google\\Chrome",
+                    "name": "PasswordManagerEnabled",
+                    "value": 1,
+                    "type": "REG_DWORD"
+                }
+            ]
+        },
+        {
+            "id": "Enable password manager in Edge",
+            "trigger": "Value Change",
+            "values": [
+                {
+                    "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge",
+                    "name": "PasswordManagerEnabled",
+                    "value": 1,
+                    "type": "REG_DWORD"
+                }
+            ]
+        }
+    ]
+}
