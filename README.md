@@ -1,4 +1,4 @@
-# Registry-Auto-Updater
+# registry-auto-updater
 [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://raw.githubusercontent.com/blu3mania/registry-auto-updater/main/LICENSE)
 [![node.js 17+](https://img.shields.io/badge/node.js-17.0.0-blue?logo=node.js)](https://nodejs.org/en/)
 [![Latest Release](https://img.shields.io/github/v/release/blu3mania/registry-auto-updater)](https://github.com/blu3mania/registry-auto-updater/releases/latest)
@@ -34,6 +34,9 @@ It can be run as a standalone application or as a Windows service.
      in provider, or domain update is queued (due to update interval).
 
      **Note**, this only works when running in standalone mode instead of a Windows service.
+   * logging determines whether registry API errors will be logged to console. It helps with initial investigation
+     but might become too spamming when there are expected errors, especially when other applications delete the
+     keys/values this app is motioning.
    * updateSets defines the registry keys/values to monitor/update. It is an array, and each item has the following
      properties:
      * id is a string identifier used for display, so it is clear which update set is triggered when event happens

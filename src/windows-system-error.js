@@ -1,5 +1,5 @@
-import ref from 'ref-napi';
 import ffi from 'ffi-napi';
+import ref from 'ref-napi';
 
 import { fromNullTerminatedWString } from './wstring.js';
 

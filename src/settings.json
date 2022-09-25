@@ -3,6 +3,7 @@
         "name": "Registry Auto Updater"
     },
     "showNotification": false,
+    "logging": true,
     "updateSets": [
         {
             "id": "Interactive logon: Do not require CTRL+ALT+DEL",

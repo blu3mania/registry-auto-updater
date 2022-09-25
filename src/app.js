@@ -1,13 +1,14 @@
-import * as url from 'url';
 import path from 'path';
+import url from 'url';
+
 import notifier from 'node-notifier';
+import Registry from 'windows-registry-monitor';
 
 import {
     error,
     warning,
     info,
     verbose } from './print.js';
-import { Registry } from './windows-registry.js';
 import settings from './settings.json' assert {type: 'json'};
 
 verbose('Starting...');
@@ -25,6 +26,10 @@ const monitorTokens = [];
 main();
 
 function main() {
+    if (!settings.logging) {
+        registry.disableLogging();
+    }
+
     settings.updateSets.forEach((updateSet) => {
         updateSet.values.forEach((value) => {
             const updateValue = () => {
