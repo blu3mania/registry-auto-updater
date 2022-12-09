@@ -24,6 +24,24 @@
             ]
         },
         {
+            "id": "Disable Telemetry",
+            "trigger": "Value Change",
+            "values": [
+                {
+                    "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+                    "name": "AllowTelemetry",
+                    "value": 0,
+                    "type": "REG_DWORD"
+                },
+                {
+                    "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+                    "name": "AllowTelemetry_PolicyManager",
+                    "value": 0,
+                    "type": "REG_DWORD"
+                }
+            ]
+        },
+        {
             "id": "Enable password manager in Chrome",
             "trigger": "Value Change",
             "values": [
@@ -42,6 +60,18 @@
                 {
                     "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge",
                     "name": "PasswordManagerEnabled",
+                    "value": 1,
+                    "type": "REG_DWORD"
+                }
+            ]
+        },
+        {
+            "id": "Restore the last session when Edge starts up",
+            "trigger": "Value Change",
+            "values": [
+                {
+                    "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge",
+                    "name": "RestoreOnStartup",
                     "value": 1,
                     "type": "REG_DWORD"
                 }
