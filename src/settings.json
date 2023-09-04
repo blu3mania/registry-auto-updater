@@ -76,6 +76,24 @@
                     "type": "REG_DWORD"
                 }
             ]
+        },
+        {
+            "id": "Do not change my hostname!",
+            "trigger": "Value Change",
+            "values": [
+                {
+                    "key": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ComputerName\\ComputerName",
+                    "name": "ComputerName",
+                    "value": "ORIG-HOSTNAME",
+                    "type": "REG_SZ"
+                },
+                {
+                    "key": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ComputerName\\ActiveComputerName",
+                    "name": "ComputerName",
+                    "value": "ORIG-HOSTNAME",
+                    "type": "REG_SZ"
+                }
+            ]
         }
     ]
 }
