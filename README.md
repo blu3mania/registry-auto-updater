@@ -9,9 +9,12 @@ It can be run as a standalone application or as a Windows service.
 
 ## Run these steps first:
 
-1. One of the packages, "ffi-napi", uses native modules and relies on "node-gyp" to build the project. As a
-   result, there are some prerequisites that need to be installed/configured. Please refer to [node-gyp's
-   instructions](https://github.com/nodejs/node-gyp#installation).
+1. One of the packages, "ffi-napi", uses native modules and relies on "node-gyp" to build the project if needed,
+   depending on whether a prebuilt binary exists or not. As a result, there may be some prerequisites that are
+   needed to be installed/configured. The recommendation is to try to install this package first, and if it ends
+   up building the native binary on the fly and node-gyp complains about something, then refer to
+   [node-gyp's instructions](https://github.com/nodejs/node-gyp#installation) to have those prerequisites installed.
+
 2. Edit src/settings.json.
    * service defines service parameters when installed as Windows service:
      * name is the service name to be used.
@@ -120,6 +123,7 @@ It can be run as a standalone application or as a Windows service.
             ]
         }
    ```
+
 3. Run "npm install". Accept UAC prompts if any (there could be up to 4).
 
    **Notes**
