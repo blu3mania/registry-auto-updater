@@ -1,6 +1,6 @@
 # registry-auto-updater
 [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://raw.githubusercontent.com/blu3mania/registry-auto-updater/main/LICENSE)
-[![node.js 17+](https://img.shields.io/badge/node.js-17.0.0-blue?logo=node.js)](https://nodejs.org/en/)
+[![node.js 18+](https://img.shields.io/badge/node.js-18.0.0-blue?logo=node.js)](https://nodejs.org/en/)
 [![Latest Release](https://img.shields.io/github/v/release/blu3mania/registry-auto-updater)](https://github.com/blu3mania/registry-auto-updater/releases/latest)
 
 Automatically update registry values based on trigger or timer.
@@ -161,7 +161,7 @@ It can be run as a standalone application or as a Windows service.
      and ffi-napi (e.g. https://github.com/node-ffi-napi/node-ffi-napi/issues/188). Even though one of the
      reported issues claimed that it was fixed in node.js 16.17.0, the aforementioned crash could still be
      encountered. It seems node.js 18.9.0 is quite stable. For now this package is marked as requiring node.js
-     17+, but the recommendation is to use the newest 18.x.
+     18+.
 
 
 ## To run the script manually:

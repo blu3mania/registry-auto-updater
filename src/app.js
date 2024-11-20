@@ -9,7 +9,7 @@ import {
     warning,
     info,
     verbose } from './print.js';
-import settings from './settings.json' assert {type: 'json'};
+import settings from './settings.json' with {type: 'json'};
 
 verbose('Starting...');
 
@@ -47,14 +47,10 @@ function main() {
                     info(`UpdateSet "${updateSet.id}" triggered. Resetting value "${value.key}\\${value.name}"...`);
                     if (updateValue()) {
                         info(`Successfully reset value "${value.key}\\${value.name}".`);
-                        if (settings.showNotification) {
-                            sendDesktopNotification('Monitored Registry Value Changed', `UpdateSet "${updateSet.id}" triggered. Successfully reset value "${value.key}\\${value.name}".`, 'value-updated.png');
-                        }
+                        sendDesktopNotification('Monitored Registry Value Changed', `UpdateSet "${updateSet.id}" triggered. Successfully reset value "${value.key}\\${value.name}".`, 'value-updated.png');
                     } else {
                         error(`Failed to update value "${value.key}\\${value.name}"!`);
-                        if (settings.showNotification) {
-                            sendDesktopNotification('Monitored Registry Value Changed', `UpdateSet "${updateSet.id}" triggered. Failed to update value "${value.key}\\${value.name}".`, 'value-update-failure.png');
-                        }
+                        sendDesktopNotification('Monitored Registry Value Changed', `UpdateSet "${updateSet.id}" triggered. Failed to update value "${value.key}\\${value.name}".`, 'value-update-failure.png');
                     }
                 });
                 monitorTokens.push(monitorToken);
@@ -63,14 +59,10 @@ function main() {
                     //info(`UpdateSet "${updateSet.id}" triggered. Updating value...`);
                     if (updateValue()) {
                         info(`Successfully reset value "${value.key}\\${value.name}".`);
-                        if (settings.showNotification) {
-                            sendDesktopNotification('Registry Value Monitor Timer Event', `UpdateSet "${updateSet.id}" triggered. Successfully reset value ${value.key}\\${value.name}.`, 'value-updated.png');
-                        }
+                        sendDesktopNotification('Registry Value Monitor Timer Event', `UpdateSet "${updateSet.id}" triggered. Successfully reset value ${value.key}\\${value.name}.`, 'value-updated.png');
                     } else {
                         error(`Failed to update value "${value.key}\\${value.name}"!`);
-                        if (settings.showNotification) {
-                            sendDesktopNotification('Registry Value Monitor Timer Event', `UpdateSet "${updateSet.id}" triggered. Failed to update value "${value.key}\\${value.name}".`, 'value-update-failure.png');
-                        }
+                        sendDesktopNotification('Registry Value Monitor Timer Event', `UpdateSet "${updateSet.id}" triggered. Failed to update value "${value.key}\\${value.name}".`, 'value-update-failure.png');
                     }
                 }, (updateSet.timer ?? 60) * 1000);
             }
@@ -92,12 +84,14 @@ function exitProcess() {
 }
 
 function sendDesktopNotification(title, message, icon) {
-    notifier.notify({
-        title: title,
-        message: message,
-        appID: 'Update Dynamic DNS',
-        icon: getImagePath(icon),
-    });
+    if (settings.showNotification) {
+        notifier.notify({
+            title: title,
+            message: message,
+            appID: 'Update Dynamic DNS',
+            icon: getImagePath(icon),
+        });
+    }
 }
 
 function getImagePath(imageFile) {
